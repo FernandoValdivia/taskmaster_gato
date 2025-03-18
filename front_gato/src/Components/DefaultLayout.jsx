@@ -33,20 +33,20 @@ export default function DefaultLayout() {
                 <header>
                     <Link to="/" title="Inicio TaskMaster">
                         <div className="logo_navbar">
-                            <img src="./src/assets/logo_gato.webp" alt="Logo Agencia GATO" />
+                            <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/gato_logo.webp" alt="Logo Agencia GATO" />
                             <h1>TaskMaster</h1>
                         </div>
                     </Link>
                     <div className="welcome_tool">
-                        <h3>Bienvenido, <span>{user.name}</span>!</h3>
+                        <h3>Hola, <span>{user.name}</span>!</h3>
                         <Link to={`/tasks/${user.id}`} className="btn-logout" title="Tareas">
-                            <img src="./src/assets/tasks.webp" alt="Boton de tareas" />
+                            <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/hrnz3jtuba1jn0osjev9.webp" alt="Boton de tareas" />
                         </Link>
                         <Link to={"/users"} className="btn-logout" title="Usuarios">
-                            <img src="./src/assets/users.webp" alt="Boton de usuarios" />
+                            <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/cat.webp" alt="Boton de usuarios" />
                         </Link>
                         <a href="#" onClick={onLogout} className="btn-logout" title="Cerrar sesión">
-                            <img src="./src/assets/logout.webp" alt="Boton de logout" />
+                            <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/logout.webp" alt="Boton de logout" />
                         </a>
                     </div>
                 </header>

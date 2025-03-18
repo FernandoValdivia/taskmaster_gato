@@ -1,10 +1,9 @@
-import axios from "axios";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../axiosClient";
 import { useStateContext } from "../contexts/contextprovider";
 
-export default function login(){
+export default function Login(){
 
     const emailRef = useRef();
     const passwordRef = useRef();

@@ -1,5 +1,5 @@
 import { useContext, useState, createContext } from "react";
-import PropTypes from "prop-types"; // Importar prop-types
+import PropTypes from "prop-types";
 
 const StateContext = createContext({
     user: null,

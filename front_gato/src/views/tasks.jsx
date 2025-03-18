@@ -62,7 +62,7 @@ export default function Tasks() {
               <th>Descripción</th>
               <th>Estado</th>
               <th>Fecha Límite</th>
-              <th>ID usuario</th>
+              {/* <th>ID usuario</th> */}
               <th>Acciones</th>
             </tr>
           </thead>
@@ -84,16 +84,16 @@ export default function Tasks() {
                   <td>
                     <span className={`status-badge ${task.status}`}>{task.status}</span>
                   </td>
-                  <td>{new Date(task.due_date).toLocaleDateString()}</td>
-                  <td>{task.user_id}</td>
+                  <td>{task.due_date}</td>
+                  {/* <td>{task.user_id}</td> */}
                   <td>
-                    <Link className="btn-edit" to={`/tasks/edit/${task.id}`}>
-                      Editar
+                    <Link className="btn-edit" to={`/tasks/edit/${task.id}`} title="Editar tarea">
+                      <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326723/gato/edit.webp" alt="Editar" />
                     </Link>
                     &nbsp;
-                    <button className="btn-delete" onClick={() => onDeleteClick(task)}>
-                      Eliminar
-                    </button>
+                    <Link className="btn-delete" onClick={() => onDeleteClick(task)} title="Eliminar tarea">
+                      <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326723/gato/delete.webp" alt="Eliminar" />
+                    </Link>
                   </td>
                 </tr>
               ))}

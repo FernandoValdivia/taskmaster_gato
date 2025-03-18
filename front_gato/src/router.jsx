@@ -1,12 +1,12 @@
 import {createBrowserRouter} from 'react-router-dom';
-import Login from './views/login.jsx';
-import Register from './views/register.jsx';
+import Login from './views/Login.jsx';
+import Register from './views/Register.jsx';
 import DefaultLayout from './Components/DefaultLayout.jsx';
 import GuestLayout from './Components/GuestLayout.jsx';
-import Users from './views/users.jsx';
+import Users from './views/Users.jsx';
 import UserForm from './views/UserForm.jsx';
 import TaskForm from './views/TaskForm.jsx';
-import Tasks from './views/tasks.jsx';
+import Tasks from './views/Tasks.jsx';
 
 const router = createBrowserRouter ([
     {

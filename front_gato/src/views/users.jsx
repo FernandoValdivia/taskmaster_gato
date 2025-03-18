@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react"
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../axiosClient";
 
-export default function users(){
+export default function Users(){
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   
@@ -63,12 +62,19 @@ export default function users(){
               {users.map(u => (
                 <tr key={u.id}>
                   <td>{u.id}</td>
-                  <td>{u.name}</td>
+                  <td>
+                    <img width={25} src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/gato_logo.webp" alt="Agencia GATO logo" />
+                    {u.name}
+                  </td>
                   <td>{u.email}</td>
                   <td>
-                    <Link className="btn-edit" to={'/users/' + u.id}>Editar</Link>
+                    <Link className="btn-edit" to={'/users/' + u.id}>
+                      <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326723/gato/edit.webp" alt="Editar" />
+                    </Link>
                     &nbsp;
-                    <button className="btn-delete" onClick={() => onDeleteClick(u)}>Borrar</button>
+                    <Link className="btn-delete" onClick={() => onDeleteClick(u)}>
+                      <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326723/gato/delete.webp" alt="Eliminar" />
+                    </Link>
                   </td>
                 </tr>
               ))}

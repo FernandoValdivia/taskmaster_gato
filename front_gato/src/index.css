@@ -73,13 +73,32 @@ input:focus {
     width: 100%;
 }
 
-.btn-add,
-.btn-edit,
-.btn-delete{
+.btn-add {
     padding: 0.5rem 0.75rem;
     font-size: 14px;
     border-radius: 4px;
 }
+
+.btn-edit,
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    filter: brightness(1.2);
+}
+
+.btn-edit img,
+.btn-delete img {
+    width: 20px;
+    height: 20px;
+}
+
 .btn-add {
     background-color: #00a762;
 }
@@ -176,6 +195,28 @@ table > tbody > tr > td {
     background-color: #00a762;
     color: white;
     border-radius: 0.5rem;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background-color: #FF5252; 
+    color: #fff;
+}
+
+.status-badge.in_progress {
+    background-color: #FFC107;
+    color: #fff;
+}
+
+.status-badge.completed {
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 .logo_navbar {
