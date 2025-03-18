@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axiosClient from "../axiosClient";
 
 export default function Tasks() {
+  const {user_id} = useParams();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -10,9 +11,6 @@ export default function Tasks() {
     getTasks();
   }, []);
 
-  useEffect(() => {
-    console.log("Tasks updated:", tasks); // Verifica si tasks se actualiza correctamente
-  }, [tasks]);
 
   const onDeleteClick = (task) => {
     if (!window.confirm("¿Seguro que quieres eliminar esta tarea?")) {
@@ -25,7 +23,7 @@ export default function Tasks() {
 
   const getTasks = () => {
     setLoading(true);
-    const userId = localStorage.getItem("userId");
+    const userId = user_id
 
     axiosClient
       .get(`/tasks`, {
@@ -34,9 +32,9 @@ export default function Tasks() {
         },
       })
       .then(({ data }) => {
-        console.log(data); // Verifica la estructura de la respuesta
+        //console.log(data);
         setLoading(false);
-        setTasks(data.data); // Accede a data.data para obtener el array de tareas
+        setTasks(data.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -44,11 +42,15 @@ export default function Tasks() {
       });
   };
 
+  if (!user_id) {
+    console.error("User ID no encontrado en localStorage");
+  }
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h1>Mis Tareas</h1>
-        <Link className="btn-add" to="/tasks/new">
+        <Link className="btn-add" to={`/tasks/new/${user_id}`}>
           Nueva Tarea +
         </Link>
       </div>
@@ -60,6 +62,7 @@ export default function Tasks() {
               <th>Descripción</th>
               <th>Estado</th>
               <th>Fecha Límite</th>
+              <th>ID usuario</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -82,8 +85,9 @@ export default function Tasks() {
                     <span className={`status-badge ${task.status}`}>{task.status}</span>
                   </td>
                   <td>{new Date(task.due_date).toLocaleDateString()}</td>
+                  <td>{task.user_id}</td>
                   <td>
-                    <Link className="btn-edit" to={`/tasks/${task.id}`}>
+                    <Link className="btn-edit" to={`/tasks/edit/${task.id}`}>
                       Editar
                     </Link>
                     &nbsp;

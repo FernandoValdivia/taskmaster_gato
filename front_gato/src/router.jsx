@@ -26,15 +26,15 @@ const router = createBrowserRouter ([
                 element: <UserForm key="userUpdate" />
             },
             {
-                path: '/tasks',
+                path: '/tasks/:user_id',
                 element: <Tasks />,
             },
             {
-                path: '/tasks/new',
+                path: '/tasks/new/:user_id',
                 element: <TaskForm key="taskCreate"/>
             },
             {
-                path: '/tasks/:id',
+                path: '/tasks/edit/:id',
                 element: <TaskForm key="taskUpdate" />
             },
         ]

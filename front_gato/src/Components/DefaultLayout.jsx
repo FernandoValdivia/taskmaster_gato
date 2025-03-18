@@ -3,32 +3,31 @@ import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../axiosClient";
 import { useStateContext } from "../contexts/contextprovider";
 import { Link } from "react-router-dom";
-import Tasks from '../views/tasks.jsx';
 
+export default function DefaultLayout() {
+    const { user, token, setUser, setToken } = useStateContext();
 
-export default function DefaultLayout(){
-    const {user, token, setUser, setToken} = useStateContext();
     useEffect(() => {
         axiosClient.get('/user')
-            .then(({data}) => {
-                setUser(data)
-            })
-        }, [setUser])
+            .then(({ data }) => {
+                setUser(data);
+            });
+    }, [setUser]);
 
-    if(!token){
-        return <Navigate to='/login'/>
+    if (!token) {
+        return <Navigate to='/login' />;
     }
-    
-    const onLogout =  (ev) =>{
+
+    const onLogout = (ev) => {
         ev.preventDefault();
         axiosClient.get('/logout')
-        .then(() => {
-            setUser(null)
-            setToken(null)
-            })
-        }
+            .then(() => {
+                setUser(null);
+                setToken(null);
+            });
+    };
 
-    return(
+    return (
         <div id="defaultLayout">
             <div className="content">
                 <header>
@@ -39,8 +38,8 @@ export default function DefaultLayout(){
                         </div>
                     </Link>
                     <div className="welcome_tool">
-                        <h4>Bienvenido, <span>{user.name}</span>!</h4>
-                        <Link to={"/tasks"} className="btn-logout" title="Tareas">
+                        <h3>Bienvenido, <span>{user.name}</span>!</h3>
+                        <Link to={`/tasks/${user.id}`} className="btn-logout" title="Tareas">
                             <img src="./src/assets/tasks.webp" alt="Boton de tareas" />
                         </Link>
                         <Link to={"/users"} className="btn-logout" title="Usuarios">
@@ -56,5 +55,5 @@ export default function DefaultLayout(){
                 </main>
             </div>
         </div>
-    )
+    );
 }
