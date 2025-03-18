@@ -5,6 +5,8 @@ import DefaultLayout from './Components/DefaultLayout.jsx';
 import GuestLayout from './Components/GuestLayout.jsx';
 import Users from './views/users.jsx';
 import UserForm from './views/UserForm.jsx';
+import TaskForm from './views/TaskForm.jsx';
+import Tasks from './views/tasks.jsx';
 
 const router = createBrowserRouter ([
     {
@@ -22,6 +24,18 @@ const router = createBrowserRouter ([
             {
                 path: '/users/:id',
                 element: <UserForm key="userUpdate" />
+            },
+            {
+                path: '/tasks',
+                element: <Tasks />,
+            },
+            {
+                path: '/tasks/new',
+                element: <TaskForm key="taskCreate"/>
+            },
+            {
+                path: '/tasks/:id',
+                element: <TaskForm key="taskUpdate" />
             },
         ]
     },

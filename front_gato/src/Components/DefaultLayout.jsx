@@ -3,6 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../axiosClient";
 import { useStateContext } from "../contexts/contextprovider";
 import { Link } from "react-router-dom";
+import Tasks from '../views/tasks.jsx';
 
 
 export default function DefaultLayout(){
@@ -39,6 +40,9 @@ export default function DefaultLayout(){
                     </Link>
                     <div className="welcome_tool">
                         <h4>Bienvenido, <span>{user.name}</span>!</h4>
+                        <Link to={"/tasks"} className="btn-logout" title="Tareas">
+                            <img src="./src/assets/tasks.webp" alt="Boton de tareas" />
+                        </Link>
                         <Link to={"/users"} className="btn-logout" title="Usuarios">
                             <img src="./src/assets/users.webp" alt="Boton de usuarios" />
                         </Link>

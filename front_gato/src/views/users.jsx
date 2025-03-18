@@ -12,7 +12,7 @@ export default function users(){
   }, [])
 
   const onDeleteClick = user => {
-      if (!window.confirm("Seguro que quieres borrar al usuario?")) {
+      if (!window.confirm("¿Seguro que quieres borrar al usuario?")) {
         return
       }
       axiosClient.delete(`/users/${user.id}`)
