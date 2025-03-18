@@ -1,4 +1,5 @@
 <img src="https://res.cloudinary.com/lvaldivia/image/upload/v1742326639/gato/gato_logo.webp">
+
 ## Como inicializar el proyecto
 1.	Clonar el repositorio https://github.com/FernandoValdivia/taskmaster_gato.git
 2.	Ejecutar los comandos:
