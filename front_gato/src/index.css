@@ -47,6 +47,7 @@ input {
     transition: all 0.3s;
 }
 
+.container__doble select:focus,
 input:focus {
     border-color: var(--primary-color);
 }
@@ -233,6 +234,27 @@ table > tbody > tr > td {
 
 .logo_navbar h1:hover {
     color: var(--text-color);
+}
+
+.container__doble {
+    display: flex;
+    gap: 15px;
+}
+
+.container__doble input,
+.container__doble select {
+    flex: 1;
+}
+
+.container__doble select {
+    height: fit-content;
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: all 0.3s;
 }
 
 /* Login/Signup forms*/

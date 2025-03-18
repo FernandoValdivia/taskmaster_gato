@@ -101,20 +101,22 @@ export default function TaskForm() {
                             onChange={(ev) => setTask({ ...task, description: ev.target.value })}
                             placeholder="Descripción"
                         />
-                        <select
-                            value={task.status}
-                            onChange={(ev) => setTask({ ...task, status: ev.target.value })}
-                        >
-                            <option value="pending">Pendiente</option>
-                            <option value="in_progress">En progreso</option>
-                            <option value="completed">Completada</option>
-                        </select>
-                        <input
-                            type="date"
-                            value={task.due_date}
-                            onChange={(ev) => setTask({ ...task, due_date: ev.target.value })}
-                            placeholder="Fecha límite"
-                        />
+                        <div className="container__doble">
+                            <select
+                                value={task.status}
+                                onChange={(ev) => setTask({ ...task, status: ev.target.value })}
+                            >
+                                <option value="pending">Pendiente</option>
+                                <option value="in_progress">En progreso</option>
+                                <option value="completed">Completada</option>
+                            </select>
+                            <input
+                                type="date"
+                                value={task.due_date}
+                                onChange={(ev) => setTask({ ...task, due_date: ev.target.value })}
+                                placeholder="Fecha límite"
+                            />
+                        </div>
                         <button className="btn">Guardar</button>
                     </form>
                 )}
